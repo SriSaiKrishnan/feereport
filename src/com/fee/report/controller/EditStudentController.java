@@ -5,6 +5,7 @@ package com.fee.report.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,15 @@ import com.fee.report.service.impl.StudentServiceImpl;
  *
  */
 public class EditStudentController extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		Integer id = Integer.parseInt(request.getParameter("studentid"));
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("editstudent?id="+id);
+		dispatcher.forward(request, response);
+		
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -35,9 +45,9 @@ public class EditStudentController extends HttpServlet {
 		student.setState(request.getParameter("state"));
 		student.setCountry(request.getParameter("country"));
 		student.setContactNo(Long.parseLong(request.getParameter("contact_no")));
-		student.setId(1);
+		student.setId(Integer.parseInt(request.getParameter("id")));
 		studentService.editStudent(student);
 		
-		response.sendRedirect("editstudent.jsp");
+		response.sendRedirect("searchstudent.jsp");
 	}
 }

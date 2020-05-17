@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="editstudent.jsp" method="post">
+<form action="editstudent" method="get">
 
 Enter the Student ID: <input type="text" name="studentid" id="studentid"> <br><br>
 

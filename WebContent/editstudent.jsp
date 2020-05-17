@@ -17,21 +17,31 @@
 <%
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	if(session.getAttribute("username")==null){
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("index.html");
 	}
 %>
 
 <%
+int counter = 0;
+String studentid = null;
+Integer studentId = 0;
+
+ studentid = request.getParameter("studentid");
+ System.out.println(studentid);
+	 studentId = Integer.parseInt(studentid);
+	counter++;
 	StudentService service = new StudentServiceImpl();
 	Student student = new Student();
-	student.setId(1);
+	student.setId(studentId);
 	student = service.viewStudentById(student);
 %>
 
 
 <form action="editstudent" method="post" >
 
-Enter the Name: <input type="text" value="<%=student.getName()%>" name="accountantname" id="accountantid" > <br><br>
+Enter the ID: <input type="text" value=<%= request.getParameter("studentid") %>  name="id" id="id" > <br><br>
+
+Enter the Name: <input type="text" value="<%=student.getName()%>" name="accountantname" id="accountantname" > <br><br>
 
 Enter the Email: <input type="text" value="<%=student.getEmailID()%>" name="email" id="email"> <br><br>
 
