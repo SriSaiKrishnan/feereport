@@ -76,19 +76,27 @@ public class StudentDao {
 
 	public void update(Student student) {
 		if(checkStudentExist(student)) {
-			Student students = new Student();
-			students.setName(student.getName());
-			students.setEmailID(student.getEmailID());
-			students.setCourse(student.getCourse());
-			students.setFee(student.getFee());
-			students.setPaid(student.getPaid());
-			students.setDue(student.getDue());
-			students.setAddress(student.getAddress());
-			students.setCity(student.getCity());
-			students.setState(student.getState());
-			students.setCountry(student.getCountry());
-			students.setContactNo(student.getContactNo());
-			lStudent.add(students);
+			try {
+				String sql = "update student set name =?, emailid=?, course=?, fee=?, paid=?, due=?, address=?, city=?, state=?, country=?, contact_no=? where id =?";
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setString(1, student.getName());
+				preparedStatement.setString(2, student.getEmailID());
+				preparedStatement.setString(3, student.getCourse());
+				preparedStatement.setInt(4, student.getFee());
+				preparedStatement.setInt(5, student.getPaid());
+				preparedStatement.setInt(6, student.getDue());
+				preparedStatement.setString(7, student.getAddress());
+				preparedStatement.setString(8, student.getCity());
+				preparedStatement.setString(9, student.getState());
+				preparedStatement.setString(10, student.getCountry());
+				preparedStatement.setLong(11, student.getContactNo());
+				preparedStatement.setInt(12, student.getId());
+				preparedStatement.executeUpdate();
+				
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}else {
 			System.out.println("Student not Available");
 		}
@@ -119,6 +127,33 @@ public class StudentDao {
 			e.printStackTrace();
 		}
 		return lStudent;
+	}
+	
+	public Student viewStudent(Student students) {
+		Student student = new Student();
+		try {
+			String sql = "select * from student where id = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, students.getId());
+			resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()){
+				student.setName(resultSet.getString("name"));
+				student.setEmailID(resultSet.getString("emailid"));
+				student.setCourse(resultSet.getString("course"));
+				student.setFee(resultSet.getInt("fee"));
+				student.setPaid(resultSet.getInt("paid"));
+				student.setDue(resultSet.getInt("due"));
+				student.setAddress(resultSet.getString("address"));
+				student.setCity(resultSet.getString("city"));
+				student.setState(resultSet.getString("state"));
+				student.setCountry(resultSet.getString("country"));
+				student.setContactNo(resultSet.getLong("contact_no"));
+			}
+	}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return student;
 	}
 	
 }

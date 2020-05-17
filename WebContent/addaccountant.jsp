@@ -28,6 +28,8 @@ Enter the Contant_No: <input type="text" name="contactno" > <br><br>
 
 <input type="submit" value="Add Accountant">
 
+ <button type="submit" formaction="admin.jsp">Back</button>
+
 </form> 
 
 </body>

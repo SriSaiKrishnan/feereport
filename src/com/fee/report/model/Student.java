@@ -9,6 +9,7 @@ package com.fee.report.model;
  */
 public class Student {
 	
+	private Integer id;
 	private String name;
 	private String emailID;
 	private String course;
@@ -52,6 +53,14 @@ public class Student {
 		this.state = state;
 		this.country = country;
 		this.contactNo = contactNo;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	/**
@@ -210,9 +219,9 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", emailID=" + emailID + ", course=" + course
-				+ ", fee=" + fee + ", paid=" + paid + ", due=" + due + ", address=" + address + ", city=" + city
-				+ ", state=" + state + ", country=" + country + ", contactNo=" + contactNo + "]";
+		return "Student [id=" + id + ", name=" + name + ", emailID=" + emailID + ", course=" + course + ", fee=" + fee
+				+ ", paid=" + paid + ", due=" + due + ", address=" + address + ", city=" + city + ", state=" + state
+				+ ", country=" + country + ", contactNo=" + contactNo + "]";
 	}
 
 }

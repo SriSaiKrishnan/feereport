@@ -17,6 +17,8 @@ public interface AccountantService {
 	
 	public boolean checkAccountantExist(Accountant accountant);
 	
+	public boolean userCheck(Accountant accountant);
+	
 	public List<Accountant> viewAccountant();
 
 }

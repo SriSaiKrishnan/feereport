@@ -38,14 +38,15 @@ public class LoginController extends HttpServlet {
 		String name = request.getParameter("uname");
 		String password = request.getParameter("password");
 		accountant.setName(name);
+		accountant.setPassword(password);
 		if(name.equalsIgnoreCase("admin")&&password.equals("admin")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", name);
 			response.sendRedirect("admin.jsp");
-		}else if(accountantService.checkAccountantExist(accountant)) {
+		}else if(accountantService.userCheck(accountant)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", name);
-			response.sendRedirect("addstudent.jsp");
+			response.sendRedirect("accountant.jsp");
 		}else {
 			response.sendRedirect("index.html");
 		}

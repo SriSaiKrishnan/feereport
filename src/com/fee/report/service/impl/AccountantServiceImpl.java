@@ -40,4 +40,10 @@ public class AccountantServiceImpl implements AccountantService {
 		return aDao.checkAccountantExistinDB(accountant);
 	}
 
+	@Override
+	public boolean userCheck(Accountant accountant) {
+		// TODO Auto-generated method stub
+		return aDao.userCheck(accountant);
+	}
+
 }

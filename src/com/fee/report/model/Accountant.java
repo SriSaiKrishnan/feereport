@@ -9,6 +9,7 @@ package com.fee.report.model;
  */
 public class Accountant {
 	
+	private Integer id;
 	private String name;
 	private String password;
 	private String emailID;
@@ -87,11 +88,18 @@ public class Accountant {
 	public void setContactNo(Long contactNo) {
 		this.contactNo = contactNo;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
-		return "Accountant [name=" + name + ", password=" + password + ", emailID=" + emailID + ", contactNo="
-				+ contactNo + "]";
-	}
-	
+		return "Accountant [id=" + id + ", name=" + name + ", password=" + password + ", emailID=" + emailID
+				+ ", contactNo=" + contactNo + "]";
+	}	
 }

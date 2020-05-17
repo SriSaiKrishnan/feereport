@@ -40,4 +40,10 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.view();
 	}
 
+	@Override
+	public Student viewStudentById(Student student) {
+		// TODO Auto-generated method stub
+		return studentDao.viewStudent(student);
+	}
+
 }

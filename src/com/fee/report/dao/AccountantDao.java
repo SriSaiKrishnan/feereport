@@ -62,6 +62,23 @@ public class AccountantDao {
 		}
 		return false;
 	}
+	
+	public boolean userCheck(Accountant accountant) {
+		try {
+			String sql = "Select * from accountant where name = ? and password = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, accountant.getName());
+			preparedStatement.setString(2, accountant.getPassword());
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	public List<Accountant> view() {
 		try {
@@ -70,6 +87,7 @@ public class AccountantDao {
 			resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()) {
 				Accountant accountant = new Accountant();
+				accountant.setId(resultSet.getInt("id"));
 				accountant.setName(resultSet.getString("name"));
 				accountant.setPassword(resultSet.getString("password"));
 				accountant.setEmailID(resultSet.getString("emailid"));

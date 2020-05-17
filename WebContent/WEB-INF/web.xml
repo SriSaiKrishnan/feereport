@@ -33,4 +33,20 @@
   <servlet-name>AddStudent</servlet-name>
   <url-pattern>/addstudent</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <servlet-name>EditStudent</servlet-name>
+  <servlet-class>com.fee.report.controller.EditStudentController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>EditStudent</servlet-name>
+  <url-pattern>/editstudent</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>Logout</servlet-name>
+  <servlet-class>com.fee.report.controller.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Logout</servlet-name>
+  <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -19,4 +19,6 @@ public interface StudentService {
 	
 	public List<Student> viewStudent();
 	
+	public Student viewStudentById(Student student);
+	
 }

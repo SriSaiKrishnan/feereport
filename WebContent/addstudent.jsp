@@ -41,6 +41,8 @@ Enter the Contact-No: <input type="text" name="contact_no" id="contact_no"> <br>
 
 <input type="submit" value="Add Student"> 
 
+ <button type="submit" formaction="accountant.jsp">Back</button>
+
 </form>
 
 </body>
