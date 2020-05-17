@@ -55,6 +55,8 @@ Enter the Contact-No: <input type="text" value="<%=student.getContactNo()%>" nam
 
 <input type="submit" value="Update Student"> 
 
+ <button type="submit" formaction="searchstudent.jsp">Back</button>
+
 </form>
 
 </body>

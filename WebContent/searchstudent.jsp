@@ -16,6 +16,8 @@ Enter the Student ID: <input type="text" name="studentid" id="studentid"> <br><b
 
  <button type="submit" formaction="editstudent.jsp">Due Fee</button>
  
+   <button type="submit" formaction="accountant.jsp">Back</button>
+ 
 </form>
 
 </body>

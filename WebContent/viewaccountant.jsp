@@ -50,6 +50,8 @@
             </c:forEach>
         </table>
     </div>
+    
+    <br><br><a  href="admin.jsp">Back</a>
 
 </body>
 </html>
